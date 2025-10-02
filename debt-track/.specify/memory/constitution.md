@@ -1,50 +1,119 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version Change: Initial → 1.0.0
+Modified Principles: N/A (initial creation)
+Added Sections:
+  - Core Principles (5 principles: Static-First Export, Component Testing, Minimalism, Iterative Development, Styling & UI Standards)
+  - Development Constraints
+  - Deployment Requirements
+  - Governance
+Removed Sections: N/A (initial creation)
+Templates Status:
+  ✅ .specify/templates/plan-template.md - reviewed, compatible
+  ✅ .specify/templates/spec-template.md - reviewed, compatible
+  ✅ .specify/templates/tasks-template.md - reviewed, compatible
+Follow-up TODOs: None
+-->
+
+# debt-track Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static-First Export
+All features MUST be compatible with Next.js static export (`output: 'export'`). No
+server-side rendering, no API routes in Next.js runtime, no dynamic server features.
+Pages MUST be pre-rendered at build time. External APIs are called from the client only.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+**Rationale**: Enables deployment to static file servers and GitHub Pages without
+requiring a Node.js runtime, reducing operational complexity and hosting costs.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Component Testing (NON-NEGOTIABLE)
+Test-driven development is mandatory for all React components. Component tests MUST be
+written BEFORE implementation. Tests MUST verify component behavior, user interactions,
+and edge cases. Red-Green-Refactor cycle strictly enforced.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: TDD ensures components are designed for testability from the start,
+reduces bugs, and provides confidence during refactoring. React components are the
+primary unit of work in this application.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Minimalism
+Start with the simplest solution that solves the problem. YAGNI (You Aren't Gonna Need
+It) principles apply. Avoid premature abstraction, over-engineering, or speculative
+features. Every dependency, component, and abstraction MUST be justified by a concrete
+current need.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Keeps the codebase maintainable, understandable, and focused on actual
+user value. Reduces technical debt and makes iteration faster.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Iterative Development
+Deploy a working application early and iterate. Each feature cycle MUST result in a
+deployable, working application. Break large features into small, independently valuable
+increments. Continuous deployment via GitHub Actions is required.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Enables fast feedback loops, reduces integration risk, and ensures the
+application is always in a working state that can be demonstrated or released.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Styling & UI Standards
+Use Tailwind CSS for styling with utility-first approach. Use shadcn UI components as
+the foundation for the UI component library. Components MUST be accessible and
+responsive. Favor composition over custom CSS.
+
+**Rationale**: Tailwind CSS provides consistency and rapid development. shadcn UI
+provides accessible, well-tested primitives. This combination reduces custom code and
+maintains design system coherence.
+
+## Development Constraints
+
+**Framework**: Next.js v14 with Pages Router MUST be used. Do not use App Router.
+
+**Build Output**: Static export only (`next export` or `output: 'export'`). Build MUST
+produce static HTML, CSS, and JS files only.
+
+**Testing Tools**: React Testing Library for component tests. Use `data-testid`
+attributes for test selectors (not CSS selectors that may change).
+
+**Styling**: Tailwind CSS MUST be used. No CSS modules, no styled-components, no inline
+style objects (except for truly dynamic values like user-provided colors).
+
+**Console Usage**: In tests only, `console.log` MAY be used for error scenarios. Avoid
+unnecessary comments unless logic is complex.
+
+**Test Determinism**: Tests MUST be deterministic. No `if-else` in tests. No
+`try-catch` in tests. Let errors throw naturally.
+
+**Assert Convention**: Use `assert_eq!(expected, actual)` convention from user
+preferences (if using assertion library that supports this).
+
+## Deployment Requirements
+
+**CI/CD**: GitHub Actions workflow MUST be present and MUST deploy to GitHub Pages on
+every push to main branch (or configured production branch).
+
+**Build Validation**: Workflow MUST run component tests before deployment. Deployment
+MUST fail if tests fail.
+
+**Static Assets**: All assets MUST be optimized for static hosting. No runtime asset
+processing.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**Constitution Authority**: This constitution supersedes all other development practices
+and conventions. When in doubt, refer to this document.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**: Constitution amendments require:
+1. Documentation of the proposed change and rationale
+2. Review of impact on existing code and templates
+3. Update of dependent templates and documentation
+4. Version bump following semantic versioning
+
+**Versioning Policy**:
+- MAJOR: Backward incompatible changes (e.g., removing a core principle)
+- MINOR: New principles or sections added
+- PATCH: Clarifications, wording improvements, non-semantic fixes
+
+**Compliance Review**: All pull requests MUST verify compliance with this constitution.
+Complexity that violates principles MUST be justified in PR description or design
+documents.
+
+**Version**: 1.0.0 | **Ratified**: 2025-10-02 | **Last Amended**: 2025-10-02
