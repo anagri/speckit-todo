@@ -54,60 +54,60 @@ Single project structure at repository root:
 
 ## Phase 3.2: Type Definitions & Contracts
 
-- [ ] T009 [P] Copy `specs/001-we-will-be/contracts/types.ts` to `lib/types.ts`
-- [ ] T010 [P] Copy `specs/001-we-will-be/contracts/storage-api.ts` to `lib/storage.ts` (adapt for implementation)
+- [X] T009 [P] Copy `specs/001-we-will-be/contracts/types.ts` to `lib/types.ts`
+- [X] T010 [P] Copy `specs/001-we-will-be/contracts/storage-api.ts` to `lib/storage.ts` (adapt for implementation)
 
 ## Phase 3.3: Storage Layer Tests (TDD) ⚠️ MUST COMPLETE BEFORE 3.4
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
 
-- [ ] T011 [P] Storage API test: Write test for `loadData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
-- [ ] T012 [P] Storage API test: Write test for `saveData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
-- [ ] T013 [P] Storage API test: Write test for `clearData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
-- [ ] T014 [P] Storage API test: Write test for `isAvailable()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
-- [ ] T015 [P] Storage API test: Write test for QuotaExceededError handling in `__tests__/lib/storage.test.ts` (MUST FAIL)
-- [ ] T016 [P] Validation test: Write test for `validateAppData()` in `__tests__/lib/validation.test.ts` (MUST FAIL)
-- [ ] T017 [P] Validation test: Write test for `validateTodo()` in `__tests__/lib/validation.test.ts` (MUST FAIL)
+- [X] T011 [P] Storage API test: Write test for `loadData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
+- [X] T012 [P] Storage API test: Write test for `saveData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
+- [X] T013 [P] Storage API test: Write test for `clearData()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
+- [X] T014 [P] Storage API test: Write test for `isAvailable()` in `__tests__/lib/storage.test.ts` (MUST FAIL)
+- [X] T015 [P] Storage API test: Write test for QuotaExceededError handling in `__tests__/lib/storage.test.ts` (MUST FAIL)
+- [X] T016 [P] Validation test: Write test for `validateAppData()` in `__tests__/lib/validation.test.ts` (MUST FAIL)
+- [X] T017 [P] Validation test: Write test for `validateTodo()` in `__tests__/lib/validation.test.ts` (MUST FAIL)
 
 ## Phase 3.4: Storage Layer Implementation (ONLY after tests are failing)
 
-- [ ] T018 Implement `LocalStorageAPI` class in `lib/storage.ts` to pass tests T011-T015
-- [ ] T019 [P] Implement `validateAppData()` in `lib/validation.ts` to pass test T016
-- [ ] T020 [P] Implement `validateTodo()` in `lib/validation.ts` to pass test T017
+- [X] T018 Implement `LocalStorageAPI` class in `lib/storage.ts` to pass tests T011-T015
+- [X] T019 [P] Implement `validateAppData()` in `lib/validation.ts` to pass test T016
+- [X] T020 [P] Implement `validateTodo()` in `lib/validation.ts` to pass test T017
 
 ## Phase 3.5: State Management Tests (TDD) ⚠️ MUST COMPLETE BEFORE 3.6
 
-- [ ] T021 [P] Context test: Write test for `TodoContext` provider in `__tests__/lib/TodoContext.test.tsx` (MUST FAIL)
-- [ ] T022 [P] Reducer test: Write test for `CREATE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T023 [P] Reducer test: Write test for `UPDATE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T024 [P] Reducer test: Write test for `DELETE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T025 [P] Reducer test: Write test for `RESTORE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T026 [P] Reducer test: Write test for `TOGGLE_COMPLETE` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T027 [P] Reducer test: Write test for filter actions in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
-- [ ] T028 [P] Reducer test: Write test for sort actions in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T021 [P] Context test: Write test for `TodoContext` provider in `__tests__/lib/TodoContext.test.tsx` (MUST FAIL)
+- [X] T022 [P] Reducer test: Write test for `CREATE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T023 [P] Reducer test: Write test for `UPDATE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T024 [P] Reducer test: Write test for `DELETE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T025 [P] Reducer test: Write test for `RESTORE_TODO` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T026 [P] Reducer test: Write test for `TOGGLE_COMPLETE` action in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T027 [P] Reducer test: Write test for filter actions in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
+- [X] T028 [P] Reducer test: Write test for sort actions in `__tests__/lib/todoReducer.test.ts` (MUST FAIL)
 
 ## Phase 3.6: State Management Implementation (ONLY after tests are failing)
 
-- [ ] T029 Implement `todoReducer` in `lib/todoReducer.ts` to pass tests T022-T028
-- [ ] T030 Implement `TodoContext` and `TodoProvider` in `lib/TodoContext.tsx` to pass test T021
-- [ ] T031 Implement `useLocalStorage` hook in `lib/hooks/useLocalStorage.ts` for auto-save on state changes
+- [X] T029 Implement `todoReducer` in `lib/todoReducer.ts` to pass tests T022-T028
+- [X] T030 Implement `TodoContext` and `TodoProvider` in `lib/TodoContext.tsx` to pass test T021
+- [X] T031 Implement `useLocalStorage` hook in `lib/hooks/useLocalStorage.ts` for auto-save on state changes
 
 ## Phase 3.7: Utility Functions Tests (TDD) ⚠️ MUST COMPLETE BEFORE 3.8
 
-- [ ] T032 [P] Filter test: Write test for `filterByTags()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
-- [ ] T033 [P] Filter test: Write test for `filterByCategories()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
-- [ ] T034 [P] Filter test: Write test for `filterByPriorities()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
-- [ ] T035 [P] Filter test: Write test for `filterByDateRange()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
-- [ ] T036 [P] Filter test: Write test for `filterByCompletion()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
-- [ ] T037 [P] Sort test: Write test for `sortByPriority()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
-- [ ] T038 [P] Sort test: Write test for `sortByScheduledDate()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
-- [ ] T039 [P] Sort test: Write test for `sortByCreatedDate()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
+- [X] T032 [P] Filter test: Write test for `filterByTags()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
+- [X] T033 [P] Filter test: Write test for `filterByCategories()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
+- [X] T034 [P] Filter test: Write test for `filterByPriorities()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
+- [X] T035 [P] Filter test: Write test for `filterByDateRange()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
+- [X] T036 [P] Filter test: Write test for `filterByCompletion()` in `__tests__/lib/filters.test.ts` (MUST FAIL)
+- [X] T037 [P] Sort test: Write test for `sortByPriority()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
+- [X] T038 [P] Sort test: Write test for `sortByScheduledDate()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
+- [X] T039 [P] Sort test: Write test for `sortByCreatedDate()` in `__tests__/lib/sorts.test.ts` (MUST FAIL)
 
 ## Phase 3.8: Utility Functions Implementation (ONLY after tests are failing)
 
-- [ ] T040 [P] Implement filter functions in `lib/filters.ts` to pass tests T032-T036
-- [ ] T041 [P] Implement sort functions in `lib/sorts.ts` to pass tests T037-T039
-- [ ] T042 [P] Implement `getVisibleTodos()` selector in `lib/selectors.ts` (combines filters + sort)
-- [ ] T043 [P] Implement tag color palette in `lib/utils.ts` (12-16 Tailwind color classes)
+- [X] T040 [P] Implement filter functions in `lib/filters.ts` to pass tests T032-T036
+- [X] T041 [P] Implement sort functions in `lib/sorts.ts` to pass tests T037-T039
+- [X] T042 [P] Implement `getVisibleTodos()` selector in `lib/selectors.ts` (combines filters + sort)
+- [X] T043 [P] Implement tag color palette in `lib/utils.ts` (12-16 Tailwind color classes)
 
 ## Phase 3.9: Component Tests (TDD) ⚠️ MUST COMPLETE BEFORE 3.10
 
