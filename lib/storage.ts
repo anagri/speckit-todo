@@ -131,7 +131,7 @@ export function validateAppData(data: unknown): AppData {
     throw new StorageDataCorruptedError('Missing or invalid categories array');
   }
 
-  return obj as AppData;
+  return obj as unknown as AppData;
 }
 
 /**
@@ -169,7 +169,7 @@ export function validateTodo(todo: unknown): Todo {
     throw new StorageDataCorruptedError('Todo has invalid priority');
   }
 
-  return obj as Todo;
+  return obj as unknown as Todo;
 }
 
 // ============================================================================
