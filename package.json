@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:gh-pages": "next build && npm run postbuild:gh-pages",
+    "postbuild:gh-pages": "node scripts/prepare-gh-pages.js",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
