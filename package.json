@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:gh-pages": "next build && node scripts/rename-next-folder.js",
+    "postbuild:gh-pages": "node scripts/prepare-gh-pages.js",
     "start": "next start",
     "lint": "next lint",
     "test": "jest"
